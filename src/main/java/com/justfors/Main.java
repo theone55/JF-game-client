@@ -31,7 +31,7 @@ public class Main extends Application implements NetConnectionClient {
 
     private static final String NICKNAME = "PLAYER" + Math.random()*10000;
 
-    private static volatile Pane root = new Pane();
+    private static volatile Pane root;
     private static volatile Stage stage;
     private static volatile Rectangle rect;
     private static volatile Scene scene;
@@ -40,6 +40,7 @@ public class Main extends Application implements NetConnectionClient {
     private static final Map<String, Rectangle> bulletMap = new ConcurrentHashMap<>();
 
     {
+        root = new Pane();
         rect = initNewRectangle();
         playerBoxesMap.put(NICKNAME, rect);
         scene = new Scene(root, WIDTH, HEIGHT);
